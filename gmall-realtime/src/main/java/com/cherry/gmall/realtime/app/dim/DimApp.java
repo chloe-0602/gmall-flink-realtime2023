@@ -1,6 +1,7 @@
 package com.cherry.gmall.realtime.app.dim;
 
 import com.alibaba.fastjson.JSON;
+import com.cherry.gmall.realtime.app.func.DimSinkFunction;
 import com.cherry.gmall.realtime.app.func.TableProcessFunction;
 import com.cherry.gmall.realtime.bean.TableProcess;
 import com.cherry.gmall.realtime.until.MyKafkaUtil;
@@ -93,7 +94,7 @@ public class DimApp {
 
         // TODO 8.将数据写出到Phoenix
         dimDS.print("######### dimDS ##############");
-//        dimDS.addSink(new DimSinkFunciton());
+        dimDS.addSink(new DimSinkFunction());
 
         // TODO 9.启动任务
         env.execute("DimApp");
